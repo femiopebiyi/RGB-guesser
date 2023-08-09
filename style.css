@@ -20,6 +20,14 @@ body{
 h1{
     color: white;
 }
-span{
+/* span{
     color: white;
+} */
+#stripe{
+    height: 30px;
+    text-align: center;
+    background-color: white;
+}
+.selected{
+    background-color: blue;
 }

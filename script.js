@@ -1,4 +1,5 @@
-let colors = generateRandomColor(6)
+var numSquares= 6;
+let colors = generateRandomColor(numSquares)
 
 
 let squares = document.querySelectorAll(".square")
@@ -6,6 +7,51 @@ let pickedColor =pickColor()
 let colorDisplay = document.getElementById("colorDisplay")
 let message = document.querySelector('#message')
 let h1 = document.querySelector("h1");
+let reset = document.querySelector("#reset")
+let easy = document.getElementById("easyBtn")
+let hard = document.getElementById("hardBtn")
+
+easy.addEventListener("click", function(){
+    h1.style.backgroundColor = "#232323"
+    this.classList.add("selected")
+    hard.classList.remove("selected")
+    numSquares = 3;
+    colors = generateRandomColor(numSquares);
+    pickedColor=pickColor()
+    for (let i=0; i<squares.length;i++){
+        if(colors[i]){
+            squares[i].style.backgroundColor = colors[i]
+        }
+        else{
+            squares[i].style.display = "none"
+        }
+    }
+})
+
+hard.addEventListener("click", function(){
+    h1.style.backgroundColor = "#232323"
+    this.classList.add("selected");
+    easy.classList.remove("selected");
+    numSquares = 6
+    colors = generateRandomColor(numSquares);
+    pickedColor=pickColor();
+    for (let i=0; i<squares.length;i++){
+        
+            squares[i].style.backgroundColor = colors[i]
+            squares[i].style.display = "block"
+        
+    }
+});
+
+reset.addEventListener("click", function(){
+    colors = generateRandomColor(6);
+    pickedColor= pickColor();
+    colorDisplay.textContent= pickedColor
+    for(let i =0; i<squares.length; i++){
+    squares[i].style.backgroundColor =colors[i]
+    }
+    h1.style.backgroundColor = "#232323"
+})
 
 
 colorDisplay.textContent=pickedColor
@@ -16,6 +62,7 @@ for(let i =0; i<squares.length; i++){
     squares[i].addEventListener("click", function(){
         var clickedColor = this.style.backgroundColor
         if(clickedColor===pickedColor){
+            reset.textContent = "Play Again?"
             message.textContent= "Correct!"
             changeColor(clickedColor)
             h1.style.backgroundColor = clickedColor
