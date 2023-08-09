@@ -12,12 +12,13 @@ let easy = document.getElementById("easyBtn")
 let hard = document.getElementById("hardBtn")
 
 easy.addEventListener("click", function(){
-    h1.style.backgroundColor = "#232323"
+    h1.style.backgroundColor = "steelblue"
     this.classList.add("selected")
     hard.classList.remove("selected")
     numSquares = 3;
     colors = generateRandomColor(numSquares);
     pickedColor=pickColor()
+    colorDisplay.textContent =pickedColor
     for (let i=0; i<squares.length;i++){
         if(colors[i]){
             squares[i].style.backgroundColor = colors[i]
@@ -29,12 +30,13 @@ easy.addEventListener("click", function(){
 })
 
 hard.addEventListener("click", function(){
-    h1.style.backgroundColor = "#232323"
+    h1.style.backgroundColor = "steelblue"
     this.classList.add("selected");
     easy.classList.remove("selected");
     numSquares = 6
     colors = generateRandomColor(numSquares);
     pickedColor=pickColor();
+    colorDisplay.textContent = pickedColor
     for (let i=0; i<squares.length;i++){
         
             squares[i].style.backgroundColor = colors[i]
@@ -44,13 +46,15 @@ hard.addEventListener("click", function(){
 });
 
 reset.addEventListener("click", function(){
+    message.textContent= "";
+    this.textContent = "New Colors"
     colors = generateRandomColor(6);
     pickedColor= pickColor();
     colorDisplay.textContent= pickedColor
     for(let i =0; i<squares.length; i++){
     squares[i].style.backgroundColor =colors[i]
     }
-    h1.style.backgroundColor = "#232323"
+    h1.style.backgroundColor = "steelblue"
 })
 
 

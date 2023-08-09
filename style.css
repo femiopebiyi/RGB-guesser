@@ -5,6 +5,7 @@
 }
 body{
     background: #232323;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .square{
     width: 30%;
@@ -12,13 +13,27 @@ body{
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
+    border-radius: 30px;
+    transition: background 0.4s;
+    -webkit-transition: background 0.4s;
+    -moz-transition: background 0.4s;
 }
 .container{
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
+
 h1{
+    text-align: center;
+    background-color: steelblue;
     color: white;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+#colorDisplay{
+    font-size: 200%;
 }
 /* span{
     color: white;
@@ -29,5 +44,31 @@ h1{
     background-color: white;
 }
 .selected{
-    background-color: blue;
+    background: steelblue;
+    color: white;
+}
+button{
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: inherit;
+    transition:all .3s ease-in-out;
+    -webkit-transition:all .3s ease-in-out;
+    -moz-transition:all .3s ease-in-out;
+}
+button:hover{
+    background: steelblue;
+    color: white;
+}
+#message{
+    display: inline-block;
+    width: 20%;
+}
+#easyBtn, #hardBtn{
+    padding-right: 10px;
+    padding-left: 10px;
 }
