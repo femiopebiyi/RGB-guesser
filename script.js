@@ -74,7 +74,12 @@ hard.addEventListener("click", function(){
 reset.addEventListener("click", function(){
     message.textContent= "";
     this.textContent = "New Colors"
+    hard.classList.add("selected")
+    xtraHard.classList.remove("selected")
     colors = generateRandomColor(6);
+    for(let i=6; i<squares.length; i++){
+    squares[i].style.display = "none"
+}
     pickedColor= pickColor();
     colorDisplay.textContent= pickedColor
     for(let i =0; i<squares.length; i++){
