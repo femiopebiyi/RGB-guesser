@@ -10,33 +10,17 @@ let h1 = document.querySelector("h1");
 let reset = document.querySelector("#reset")
 let easy = document.getElementById("easyBtn")
 let hard = document.getElementById("hardBtn")
-let xtraHard = document.querySelector(".extrahard")
-
-
-for(let i=6; i<squares.length; i++){
+let extraHard= document.querySelector(".extrahard")
+for(let i =6; i<squares.length;i++){
     squares[i].style.display = "none"
 }
-xtraHard.addEventListener("click", function(){
-    h1.style.backgroundColor = "steelblue"
-    message.textContent = ""
-    this.classList.add("selected")
-    easy.classList.remove("selected")
-    hard.classList.remove("selected")
-    numSquares=9
-    colors=generateRandomColor(numSquares);
-    pickedColor=pickColor();
-    colorDisplay.textContent = pickedColor;
-    for (let i=0; i<squares.length;i++){
-        squares[i].style.display = "block"
-        squares[i].style.backgroundColor=colors[i]
-    }
-})
 
 easy.addEventListener("click", function(){
     h1.style.backgroundColor = "steelblue"
+    message.textContent=""
     this.classList.add("selected")
     hard.classList.remove("selected")
-    xtraHard.classList.remove("selected")
+    extraHard.classList.remove("selected")
     numSquares = 3;
     colors = generateRandomColor(numSquares);
     pickedColor=pickColor()
@@ -52,34 +36,45 @@ easy.addEventListener("click", function(){
 })
 
 hard.addEventListener("click", function(){
+    message.textContent="";
     h1.style.backgroundColor = "steelblue"
     this.classList.add("selected");
     easy.classList.remove("selected");
-    xtraHard.classList.remove("selected")
+    extraHard.classList.remove("selected")
     numSquares = 6
     colors = generateRandomColor(numSquares);
     pickedColor=pickColor();
     colorDisplay.textContent = pickedColor
     for (let i=0; i<squares.length;i++){
-        
+        if(colors[i]){
             squares[i].style.backgroundColor = colors[i]
             squares[i].style.display = "block"
-        
+        }
+        else{
+            squares[i].style.display = "none"
+        }
     }
-    for(let i=6; i<squares.length; i++){
-    squares[i].style.display = "none"
-}
 });
+extraHard.addEventListener("click", function(){
+    message.textContent="";
+    h1.style.backgroundColor = "steelblue"
+    this.classList.add("selected");
+    easy.classList.remove("selected");
+    hard.classList.remove("selected")
+    numSquares = 9
+    colors = generateRandomColor(numSquares);
+    pickedColor=pickColor();
+    colorDisplay.textContent = pickedColor;
+    for(let i=0; i<squares.length;i++){
+        squares[i].style.backgroundColor = colors[i]
+        squares[i].style.display = "block"
+    }
+})
 
 reset.addEventListener("click", function(){
     message.textContent= "";
     this.textContent = "New Colors"
-    hard.classList.add("selected")
-    xtraHard.classList.remove("selected")
-    colors = generateRandomColor(6);
-    for(let i=6; i<squares.length; i++){
-    squares[i].style.display = "none"
-}
+    colors = generateRandomColor(numSquares);
     pickedColor= pickColor();
     colorDisplay.textContent= pickedColor
     for(let i =0; i<squares.length; i++){
@@ -104,7 +99,7 @@ for(let i =0; i<squares.length; i++){
         }
         else{
             this.style.backgroundColor = "#232323"
-            message.textContent = "Try Again"
+            message.textContent = "Try Again!!"
         }
     })
 }
