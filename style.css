@@ -67,8 +67,17 @@ button:hover{
 #message{
     display: inline-block;
     width: 20%;
+    text-transform: capitalize;
 }
 #easyBtn, #hardBtn{
     padding-right: 10px;
     padding-left: 10px;
+}
+@media screen and (width<=568px) {
+    #colorDisplay{
+        font-size: 100%;
+    }
+    .container{
+        margin-top: 50px;
+    }
 }

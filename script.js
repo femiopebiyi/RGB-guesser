@@ -73,7 +73,7 @@ for(let i =0; i<squares.length; i++){
         }
         else{
             this.style.backgroundColor = "#232323"
-            message.textContent = "Try Again!!"
+            message.textContent = "Try Again"
         }
     })
 }
