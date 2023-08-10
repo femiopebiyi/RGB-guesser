@@ -21,6 +21,7 @@ body{
 .container{
     max-width: 600px;
     margin: 20px auto;
+    
 }
 
 h1{
@@ -69,7 +70,7 @@ button:hover{
     width: 20%;
     text-transform: capitalize;
 }
-#easyBtn, #hardBtn{
+#easyBtn, #hardBtn, .extrahard{
     padding-right: 10px;
     padding-left: 10px;
 }
